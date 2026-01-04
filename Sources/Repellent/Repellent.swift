@@ -136,13 +136,13 @@ public class Debugger {
     public static func guardBlocked(because reason: String? = nil, function: String = #function, at line: Int = #line, fileID: String = #fileID) {
         var reasonIfAny: String {
             if let reason = reason {
-                return "Function did not pass guard: \(reason)"
+                return "BLOCKED: Function did not pass guard (\(reason))"
             } else {
-                return "Function did not pass guard"
+                return "BLOCKED: Function did not pass guard"
             }
         }
         
-        Debugger.log(reasonIfAny, for: function, at: line, fileID: fileID, type: .error)
+        Debugger.log(reasonIfAny, for: function, at: line, fileID: fileID)
     }
     
     /// Sends a localized description of a caught error to the console, as well as additional information.
