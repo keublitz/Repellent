@@ -149,7 +149,7 @@ public class Debugger {
     public static func `catch`(_ error: any Error, context: Bool = true, for operation: String = #function, at line: Int = #line, fileID: String = #fileID) {
         Debugger.log(error.localizedDescription, for: operation, at: line, fileID: fileID, type: .error)
         if context {
-            Debugger.log("==> \(error)", simple: true)
+            print("==> \(error)")
         }
     }
 }
