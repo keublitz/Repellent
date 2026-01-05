@@ -2,6 +2,11 @@
 
 Repellent is a ridiculously simple and easy-to-use debugger for Swift.
 
+<p>
+  <a href="https://swift.org/"><img src="https://img.shields.io/badge/Swift-6.0-orange.svg" alt="Swift 6.2"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT"></a>
+</p>
+
 ---
 
 ## How does it work?
@@ -171,7 +176,7 @@ struct ContentView: View {
 
 For more verbosity, a reason for the block can be added.
 
-```
+```swift
 private func showText() {
     guard let text else {
         Debugger.guardBlocked(because: "text does not exist")
