@@ -224,5 +224,36 @@ All error data is printed by default, but you can print only the localized descr
     Debugger.catch(error, context: false)
 }
 ```
+
+## ```fatalError()```
+
+Works identically to Swift's default ```fatalError()``` but includes the counter and timestamp by default.
+
+```swift
+init() {
+    guard let resource = Bundle.main.path(forResource: "resource", ofType: nil) else {
+        Debugger.fatalError("Bundle not found")
+    }
+}
+```
+```
+001 | 09:41:00 | [LoremIpsum.init.5] FATAL ERROR: Bundle not found
+```
+
+And unlike the Swift default, Repellent's ```fatalError()``` supports <b>```Any```</b> within the message descriptor, so you can print more than just ```String``` values.
+
+```swift
+init(value: Double) {
+    self.value = value
+
+    if value > 255 {
+        Debugger.fatalError("Overflow value:", value)
+    }
+}
+```
+```
+001 | 09:41:00 | [LoremIpsum.init.5] FATAL ERROR: Overflow value: 267
+```
+
 ## License
 Repellent is available under the MIT license. See the LICENSE file for more info.

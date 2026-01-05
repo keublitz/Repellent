@@ -152,6 +152,32 @@ public class Debugger {
             print("==> \(error)")
         }
     }
+    
+    public static func fatalError(
+        _ message: String,
+        _ items: Any...,
+        for operation: String = #function,
+        at line: Int = #line,
+        fileID: String = #fileID
+    ) -> Never {
+        incrementLog()
+        
+        var opr: String {
+            let formattedOperation = operation.components(separatedBy: "(").first ?? operation
+            let lhsFormattedFileID = fileID.components(separatedBy: ".swift").first ?? fileID
+            let formattedFileID = lhsFormattedFileID.components(separatedBy: "Foster/").last ?? fileID
+            
+            return "[\(formattedFileID).\(formattedOperation).\(line)]"
+        }
+        
+        if !items.isEmpty {
+            Debugger.log("FATAL ERROR: \(message)", items, for: operation, at: line, fileID: fileID)
+        } else {
+            Debugger.log("FATAL ERROR: \(message)", for: operation, at: line, fileID: fileID)
+        }
+        
+        exit(1)
+    }
 }
 
 fileprivate extension BinaryFloatingPoint {
