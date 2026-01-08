@@ -3,6 +3,7 @@ import Foundation
 /// A debugging tool for printing simple and identifiable console logs.
 @MainActor
 public class Debugger {
+    public static let shared = Debugger()
     
     /// The categories of log messages.
     private static var category: DebugCategory = .none
