@@ -370,6 +370,8 @@ public final class AsyncDebugger: @unchecked Sendable {
     }
 }
 
+public let console = AsyncDebugger.shared
+
 fileprivate extension BinaryFloatingPoint {
     var shorten: String {
         let formatter = NumberFormatter()
