@@ -1,6 +1,7 @@
 import Foundation
 
 /// A debugging tool for printing simple and identifiable console logs.
+@available(*, deprecated, message: "Use the shared 'console' object to call functions.")
 @MainActor
 public class Debugger {
     public static let shared = Debugger()

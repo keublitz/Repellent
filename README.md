@@ -23,7 +23,7 @@ Repellent is a single class of static functions—for console logging, profiling
 
 ## Usage
 
-> All functions in this package are static, so <b>each function must be called with it's class</b>, simply called ```Debugger```.
+> Use the shared ```console``` object to call all functions.
 
 ## ```log()```
 
@@ -39,7 +39,7 @@ struct ContentView: View {
 
     private func addOne() {
         amount += 1
-        Debugger.log("Amount increased by one!")
+        console.log("Amount increased by one!")
     }
 
     var body: some View {
@@ -65,8 +65,8 @@ struct ContentView: View {
 
     private func addOne() {
         amount += 1
-        Debugger.log("Amount increased by one!", type: .success)
-        Debugger.log("Current count:", amount, type: .info)
+        console.log("Amount increased by one!", type: .success)
+        console.log("Current count:", amount, type: .info)
     }
 
     var body: some View {
@@ -91,7 +91,7 @@ var body: some View {
         addOne()
     }
     .onAppear {
-        Debugger.log("Button is now visible", simple: true)
+        console.log("Button is now visible", simple: true)
     }
 }
 ```
@@ -111,7 +111,7 @@ struct ContentView: View {
     private var largeArray: [Int] = Array(1...10000)
 
     private func processArray() -> [Int] {
-        Debugger.profile {
+        console.profile {
             return largeArray.map { item in
                 var result = item
                 for _ in 0..<10000 {
@@ -127,7 +127,7 @@ struct ContentView: View {
     var body: some View {
         Button("Process array") {
             processArray()
-            Debugger.log("Array is processed!", type: .success)
+            console.log("Array is processed!", type: .success)
         }
     }
 }
@@ -152,7 +152,7 @@ struct ContentView: View {
 
     private func showText() {
         guard let text else {
-            Debugger.guardBlocked()
+            console.guardBlocked()
             return
         }
 
@@ -179,7 +179,7 @@ For more verbosity, a reason for the block can be added.
 ```swift
 private func showText() {
     guard let text else {
-        Debugger.guardBlocked(because: "text does not exist")
+        console.guardBlocked(because: "text does not exist")
         return
     }
 
@@ -207,7 +207,7 @@ struct Decoder {
             let data = try Data(contentsOf: stringURL)
             numbers = try JSONDecoder().decode(Int.self, from: data)
         } catch {
-            Debugger.catch(error)
+            console.catch(error)
         }
     }
 }
@@ -220,8 +220,8 @@ struct Decoder {
 All error data is printed by default, but you can print only the localized description by setting the ```context``` modifier to FALSE.
 
 ```swift
-} catch {
-    Debugger.catch(error, context: false)
+catch {
+    console.catch(error, context: false)
 }
 ```
 
@@ -232,7 +232,7 @@ Works identically to Swift's default ```fatalError()``` but includes the counter
 ```swift
 init() {
     guard let resource = Bundle.main.path(forResource: "resource", ofType: nil) else {
-        Debugger.fatalError("Bundle not found")
+        console.fatalError("Bundle not found")
     }
 }
 ```
@@ -247,7 +247,7 @@ init(value: Double) {
     self.value = value
 
     if value > 255 {
-        Debugger.fatalError("Overflow value:", value)
+        console.fatalError("Overflow value:", value)
     }
 }
 ```
