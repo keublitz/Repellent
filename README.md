@@ -5,8 +5,7 @@ Repellent is a ridiculously simple and easy-to-use debugger for Swift.
 <p>
   <a href="https://swift.org/"><img src="https://img.shields.io/badge/Swift-6.2-orange.svg" alt="Swift 6.2"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT"></a>
-  <a href=""><img src ="https://img.shields.io/github/v/release/keublitz/Repellent
-" alt="Version"></a>
+  <img alt="GitHub Release" src="https://img.shields.io/github/v/release/keublitz/Repellent">
 </p>
 
 ---
