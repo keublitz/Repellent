@@ -183,7 +183,7 @@ public class Debugger {
 }
 
 public final class AsyncDebugger: @unchecked Sendable {
-    public static let shared = AsyncDebugger()
+    fileprivate static let shared = AsyncDebugger()
     
     private let queue = DispatchQueue(label: "com.keublitz.debugger")
     
