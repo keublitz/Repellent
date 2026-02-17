@@ -69,8 +69,7 @@ public final class Debugger: @unchecked Sendable {
         
         var opr: String {
             let formattedOperation = operation.components(separatedBy: "(").first ?? operation
-            let lhsFormattedFileID = fileID.components(separatedBy: ".swift").first ?? fileID
-            let formattedFileID = lhsFormattedFileID.components(separatedBy: "Foster/").last ?? fileID
+            let formattedFileID = fileID.components(separatedBy: ".swift").first ?? fileID
             
             return "[\(formattedFileID).\(formattedOperation).\(line)]"
         }
@@ -101,8 +100,7 @@ public final class Debugger: @unchecked Sendable {
         
         var opr: String {
             let formattedOperation = operation.components(separatedBy: "(").first ?? operation
-            let lhsFormattedFileID = fileID.components(separatedBy: ".swift").first ?? fileID
-            let formattedFileID = lhsFormattedFileID.components(separatedBy: "Foster/").last ?? fileID
+            let formattedFileID = fileID.components(separatedBy: ".swift").first ?? fileID
             
             if profile {
                 return "[\(formattedFileID).\(formattedOperation)]"
@@ -174,8 +172,7 @@ public final class Debugger: @unchecked Sendable {
         
         var opr: String {
             let formattedOperation = operation.components(separatedBy: "(").first ?? operation
-            let lhsFormattedFileID = fileID.components(separatedBy: ".swift").first ?? fileID
-            let formattedFileID = lhsFormattedFileID.components(separatedBy: "Foster/").last ?? fileID
+            let formattedFileID = fileID.components(separatedBy: ".swift").first ?? fileID
             
             return "[\(formattedFileID).\(formattedOperation).\(line)]"
         }
