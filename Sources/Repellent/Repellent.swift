@@ -21,6 +21,7 @@ public final class Debugger: @unchecked Sendable {
     private var logType: String? {
         switch category {
         case .error: return "ERROR:"
+        case .failure: return "FAILED:"
         case .warning: return "WARNING:"
         case .info: return "INFO:"
         case .success: return "SUCCESS:"

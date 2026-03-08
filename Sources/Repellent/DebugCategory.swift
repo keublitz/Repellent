@@ -3,6 +3,8 @@ import Foundation
 public enum DebugCategory: String, CaseIterable, Identifiable {
     /// A type of log that indicates an error occured during an operation.
     case error
+    /// A type of log that indicates an operation failed.
+    case failure
     /// A type of log that indicates a warning.
     case warning
     /// A type of log that displays information regarding the operation.
